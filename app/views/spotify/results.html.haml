@@ -1,0 +1,36 @@
+:javascript
+  window.calendar = #{@report.data.to_json}
+  window.fill_color = '#648f00'
+
+.row
+  .center.aligned.column
+    .ui.header
+      %h1 Results
+      %p Considering #{@report.num_playlists} playlists over #{@report.data.size} months
+
+#results.ui.row.segment
+  .fourteen.wide.column.centered
+    %h2.ui.dividing.header.centered Tracks Added per Month
+    %canvas#chart
+
+    .ui.statistics.grid.centered.center.aligned
+      .five.wide.column.statistic
+        .value= @report.num_playlists
+        .label= 'Playlist'.pluralize @report.num_playlists
+
+      .five.wide.column.statistic
+        .value= @report.num_tracks
+        .label= 'Track'.pluralize @report.num_tracks
+
+      .five.wide.column.statistic
+        .value= @report.average_tracks
+        .label Average tracks added per month
+
+    .ui.accordion
+      .title
+        Details
+      .content
+        %ul
+          - @report.data.each do |arr|
+            %li
+              #{arr[0].to_s} => #{arr[1]}

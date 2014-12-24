@@ -1,0 +1,26 @@
+.row
+  .center.aligned.column
+    %h1.ui.header Which playlists do you want to analyze?
+
+.row
+  .ui.eight.wide.centered.column
+    = form_tag '/spotify/results', class: "ui form segment left aligned" do
+
+      .ui.list.checkbox
+        = check_box_tag 'select_all'
+        = label_tag 'select_all'
+
+      %hr.ui.divider
+
+      %ul.ui.list
+        - @playlists.each do |playlist|
+          %li
+            .ui.checkbox
+              = check_box_tag 'playlists[]', playlist.id
+              = label_tag do
+                %i.ui.icon.music
+                = playlist.name
+
+      %hr.ui.divider
+
+      = submit_tag "Go!", class: "ui right aligned button"
