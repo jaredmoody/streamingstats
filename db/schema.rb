@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141207084857) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "reports", force: true do |t|
     t.string  "user_name"
     t.integer "average_tracks"
@@ -21,6 +24,6 @@ ActiveRecord::Schema.define(version: 20141207084857) do
     t.text    "data"
   end
 
-  add_index "reports", ["user_name"], name: "index_reports_on_user_name", unique: true
+  add_index "reports", ["user_name"], name: "index_reports_on_user_name", unique: true, using: :btree
 
 end
