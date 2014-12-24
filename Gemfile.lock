@@ -1,5 +1,6 @@
-PATH
-  remote: /Users/jaredmoody/code/rspotify
+GIT
+  remote: git://github.com/jaredmoody/rspotify.git
+  revision: 470e077e030af895552738861c09ac4bfdac170b
   specs:
     rspotify (1.5.1)
       omniauth-oauth2 (~> 1.1)

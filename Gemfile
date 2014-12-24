@@ -8,7 +8,7 @@ gem 'haml'
 gem 'pg'
 gem 'rails', '4.2.0.rc3'
 gem 'sqlite3'
-gem 'rspotify', path: '/Users/jaredmoody/code/rspotify'
+gem 'rspotify', github: 'jaredmoody/rspotify'
 gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails-assets-chartjs', '~>1.0.1.beta4'
