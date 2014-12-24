@@ -1,6 +1,6 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :spotify,
-           Rails.application.secrets.spotify_id,
-           Rails.application.secrets.spotify_secret,
+           ENV['SPOTIFY_ID'],
+           ENV['SPOTIFY_SECRET'],
            scope: 'playlist-read-private'
 end
