@@ -1,10 +1,10 @@
 GIT
   remote: git://github.com/jaredmoody/rspotify.git
-  revision: 470e077e030af895552738861c09ac4bfdac170b
+  revision: 29cf70250459d4b2ec60328bfd85064ebaf07377
   specs:
-    rspotify (1.5.1)
+    rspotify (1.9.1)
       omniauth-oauth2 (~> 1.1)
-      rest_client (~> 1.7)
+      rest_client (~> 1.8)
 
 GEM
   remote: https://rubygems.org/

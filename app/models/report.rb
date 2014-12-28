@@ -23,7 +23,7 @@ class Report < ActiveRecord::Base
         0.upto(playlist.total/100) do |batch|
           logger.warn "Batch: #{batch}"
           playlist.tracks(offset: batch*100).each do |track|
-            added = playlist.added_at(track.id)
+            added = playlist.tracks_added_at[track.id]
             if @tracks[track.id].nil? || @tracks[track.id] < added
               @tracks[track.id] = added
             end
