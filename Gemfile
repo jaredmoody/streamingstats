@@ -11,7 +11,7 @@ gem 'pg'
 gem 'rails', '~> 4.2.0'
 gem 'resque'
 gem 'resque-scheduler'
-gem 'rspotify', github: 'jaredmoody/rspotify'
+gem 'rspotify'
 gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails-assets-chartjs', '~>1.0.1.beta4'

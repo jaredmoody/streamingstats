@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/jaredmoody/rspotify.git
-  revision: 29cf70250459d4b2ec60328bfd85064ebaf07377
-  specs:
-    rspotify (1.9.1)
-      omniauth-oauth2 (~> 1.1)
-      rest_client (~> 1.8)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -73,7 +65,7 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.4)
     execjs (2.2.2)
-    faraday (0.9.0)
+    faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.6)
     formatador (0.2.5)
@@ -198,6 +190,9 @@ GEM
       rufus-scheduler (~> 3.0)
     rest_client (1.8.2)
       netrc (~> 0.7.7)
+    rspotify (1.10.0)
+      omniauth-oauth2 (~> 1.1)
+      rest_client (~> 1.8)
     rufus-scheduler (3.0.9)
       tzinfo
     sass (3.4.9)
@@ -266,7 +261,7 @@ DEPENDENCIES
   rails-assets-semantic-ui
   resque
   resque-scheduler
-  rspotify!
+  rspotify
   sass-rails (~> 5.0.0.beta1)
   sdoc (~> 0.4.0)
   spring
