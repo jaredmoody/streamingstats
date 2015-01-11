@@ -3,6 +3,8 @@ class SpotifyController < ApplicationController
   before_action :find_report, only: [:generate, :progress, :results]
 
   def callback
+    @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
+    session[:user] = @spotify_user.to_hash
     redirect_to action: 'generate'
   end
 
