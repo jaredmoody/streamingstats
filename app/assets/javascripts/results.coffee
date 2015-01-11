@@ -3,13 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('.ui.checkbox').checkbox()
   $('.ui.accordion').accordion()
-
-  $('#select_all').click ->
-    console.log !@checked
-    $('input[type="checkbox"]').not("#select_all").prop('checked', !@checked )
-    return
 
   if $("#chart").length
     ctx = $("#chart").get(0).getContext("2d")
@@ -23,11 +17,12 @@ $ ->
       labels: labels
       datasets: [
         {
-            fillColor: fill_color
-            data: data
+          fillColor: fill_color
+          data: data
         }
       ]
     }
+
     window.chart = new Chart(ctx).Bar(chart_data, {
       responsive: true
       barShowStroke : false
@@ -38,7 +33,6 @@ $ ->
 
     legend = chart.generateLegend();
     $('#chart').append(legend);
-
 
     $('canvas').on 'click', (evt) ->
       activeBars = chart.getBarsAtEvent(evt)

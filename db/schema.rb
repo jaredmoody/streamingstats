@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207084857) do
+ActiveRecord::Schema.define(version: 20150102030751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "reports", force: true do |t|
+  create_table "reports", force: :cascade do |t|
     t.string  "user_name"
     t.integer "average_tracks"
     t.integer "num_tracks"
     t.integer "num_playlists"
     t.text    "data"
+    t.boolean "complete",       default: false
+    t.text    "credentials"
   end
 
   add_index "reports", ["user_name"], name: "index_reports_on_user_name", unique: true, using: :btree
