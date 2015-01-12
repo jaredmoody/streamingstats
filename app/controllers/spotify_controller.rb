@@ -1,15 +1,17 @@
 class SpotifyController < ApplicationController
-  before_action :set_user, except: [:callback]
-  before_action :find_report
+
+  before_action :find_report, except: [:callback]
 
   def callback
     @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
-    redirect_to action: 'generate'
+    session[:user] = @spotify_user.id
+    find_report
 
     unless @report
       @report = Report.create(user_name: @spotify_user.id, spotify_user: @spotify_user)
       ReportGenerateJob.perform_later(@report)
     end
+    redirect_to action: 'generate'
   end
 
   def generate
@@ -25,13 +27,9 @@ class SpotifyController < ApplicationController
   private
 
   def find_report
-    @report = Report.find_by_user_name(@spotify_user.id)
-    redirect_to action: 'results' if @report.complete?
-  end
-
-  def set_user
     if session[:user]
-      @spotify_user = RSpotify::User.new(session[:user])
+      @report = Report.find_by_user_name(session[:user])
+      redirect_to action: 'results' if @report.complete? and return
     else
       redirect_to root_path
     end
