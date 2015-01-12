@@ -29,7 +29,7 @@ class SpotifyController < ApplicationController
   def find_report
     if session[:user]
       @report = Report.find_by_user_name(session[:user])
-      redirect_to action: 'results' if @report.complete? and return
+      redirect_to action: 'results' and return if @report.try(:complete?)
     else
       redirect_to root_path
     end
