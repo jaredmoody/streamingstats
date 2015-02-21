@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+ruby '2.2.0'
+
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'coffee-rails', '~> 4.1.0'
