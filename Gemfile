@@ -8,6 +8,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails', '~> 4.0.0'
 gem 'haml'
 gem 'pg'
+gem 'puma'
 gem 'rails', '~> 4.2.0'
 gem 'resque'
 gem 'resque-scheduler'
@@ -28,7 +29,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do
-  gem 'thin'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
